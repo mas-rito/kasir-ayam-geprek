@@ -1,8 +1,8 @@
 import json
-from utils import format_rupiah, waktu_sekarang
+from utils import format_rupiah, waktu_sekarang, show_menus
 
 # kode Rincian toko
-toko_nama = "====== Chicken Geprek Selamet ======"
+toko_nama = "====== Ayam Geprek Selamet ======"
 toko_alamat = "Jl. Selamet No. 1"
 toko_nomor_telepon = "083814336508"
 
@@ -18,11 +18,8 @@ print("=" * 36)
 
 
 # Tampilkan daftar menu
-print("Daftar Menu:")
-for i, (menu, harga) in enumerate(daftar_menu.items()):
-    print(f"{i+1}. {menu}: {format_rupiah(harga)}")
+show_menus()
 
-# Input pesanan
 pesanan = {}
 total_harga = 0
 
@@ -43,9 +40,12 @@ while True:
         total_harga += daftar_menu[menu_terpilih] * jumlah
         pesanan[menu_terpilih] = jumlah
 
-# Diskon 20% jika total harga lebih dari 100rb
+# Diskon 15% jika total harga lebih dari 100rb
+# Diskon 20% jika total harga lebih dari 200rb
 diskon = 0
 if total_harga > 100000:
+    diskon = 0.15 * total_harga
+elif total_harga > 200000:
     diskon = 0.2 * total_harga
 
 # Input uang dari pelanggan
