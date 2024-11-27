@@ -2,7 +2,7 @@ import json
 from utils import format_rupiah, waktu_sekarang, show_menus
 
 # kode Rincian toko
-toko_nama = "====== Ayam Geprek Selamet ======"
+toko_nama = "======================= Ayam Geprek Pakde Bagong ======================="
 toko_alamat = "Jl. Selamet No. 1"
 toko_nomor_telepon = "083814336508"
 
@@ -12,13 +12,13 @@ with open("menu.json", "r") as file:
 
 # Tampilkan rincian toko
 print(toko_nama)
-print(toko_alamat)
-print(toko_nomor_telepon)
-print("=" * 36)
+print(toko_alamat.center(72))
+print(toko_nomor_telepon.center(72))
+print("=" * 72)
 
 
 # Tampilkan daftar menu
-show_menus()
+show_menus(daftar_menu)
 
 pesanan = {}
 total_harga = 0
@@ -49,7 +49,7 @@ elif total_harga > 200000:
     diskon = 0.2 * total_harga
 
 # Input uang dari pelanggan
-print("=" * 36)
+print("=" * 72)
 print('Total belanja: ', format_rupiah(total_harga))
 uang_pelanggan = float(input("Input uang: "))
 
@@ -57,17 +57,16 @@ uang_pelanggan = float(input("Input uang: "))
 print(toko_nama)
 print(toko_alamat)
 print(toko_nomor_telepon)
-print("=" * 36)
-print("=" * 36)
-print("Menu yang dipesan:")
+print("=" * 72)
 for item, jumlah in pesanan.items():
-    print(f"{item}: {jumlah}")
-print("Total: ", total_harga)
+    print(f"{item:<68}{jumlah:>4}")
+print("=" * 72)
+print(f"{'Total:':<58} {format_rupiah(total_harga):>12}")
 if diskon > 0:
-    print(f"Diskon: {diskon}")
-print("Uang: ", uang_pelanggan)
-print("Kembalian: ", uang_pelanggan - total_harga)
-print("=" * 36)
-print("Barang yang sudah dibeli tidak dapat dikembalikan")
-print("=" * 36)
-print(waktu_sekarang())
+    print(f"{'Diskon:':<59} {format_rupiah(int(diskon)):>12}")
+print(f"{'Uang:':<58} {format_rupiah(int(uang_pelanggan)):>12}")
+print(f'{"Kembalian:":<59} {format_rupiah(int(uang_pelanggan - total_harga)):>12}')
+print("=" * 72)
+print("Terimakasih telah berbelanja di toko kami.".center(72))
+print("=" * 72)
+print(waktu_sekarang().center(72))

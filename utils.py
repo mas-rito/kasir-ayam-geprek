@@ -7,7 +7,7 @@ def format_rupiah(angka):
 def waktu_sekarang():
     return datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
-def show_menus():
+def show_menus(daftar_menu):
     print("Daftar Menu:")
     menu_bernomor = [(index + 1, menu, format_rupiah(harga)) for index, (menu, harga) in enumerate(daftar_menu.items())]
     # Membuat tabel dengan tabulate
