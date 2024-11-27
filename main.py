@@ -52,11 +52,12 @@ elif total_harga > 200000:
 print("=" * 72)
 print('Total belanja: ', format_rupiah(total_harga))
 uang_pelanggan = float(input("Input uang: "))
+print('')
 
 # Tampilkan struk
 print(toko_nama)
-print(toko_alamat)
-print(toko_nomor_telepon)
+print(toko_alamat.center(72))
+print(toko_nomor_telepon.center(72))
 print("=" * 72)
 for item, jumlah in pesanan.items():
     print(f"{item:<68}{jumlah:>4}")
